@@ -1,0 +1,624 @@
+<html></html>
+ <head>
+  <title>
+   Contact | Chartset
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f4f7fc;
+        }
+       
+
+        /* Splash Screen */
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('Chartset.png'); /* Use background-image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            z-index: 9999;
+        }
+
+        /* Hide splash screen after 2 seconds */
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 1s ease forwards;
+        }
+
+        /* Main content container */
+        .container {
+            display: flex;
+            visibility: hidden; /* Hide until splash screen fades out */
+            opacity: 0;
+            transition: visibility 0s, opacity 1s ease-in 2s; /* Delay for splash */
+        }
+
+        
+
+        .content {
+            flex-grow: 1;
+            background-color: white;
+            padding: 20px;
+        }
+
+        
+        .sidebar {
+            width: 250px;
+            background-color: #1a73e8;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar ul li i {
+            margin-right: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .sidebar .logout {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .logout i {
+            margin-right: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            background-color: white;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .header .actions {
+            display: flex;
+            align-items: center;
+        }
+        .header .actions button {
+            background-color: #f4f7fc;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .header .actions .create-account {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+        }
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .header .user-info img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .header .user-info i {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #d1d5db;
+            margin-bottom: 20px;
+        }
+        .tabs button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #1a73e8;
+            border-bottom: 2px solid transparent;
+        }
+        .tabs button.active {
+            border-bottom: 2px solid #1a73e8;
+            font-weight: 500;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            background-color: #f4f7fc;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .table th {
+            background-color: #f4f7fc;
+            font-weight: 500;
+        }
+        .table td img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .pagination span {
+            margin-right: 10px;
+        }
+  </style>
+ </head>
+ <body>
+    <div id="splash">
+        <img src="Chartset.png" alt="Splash Screen Image">
+    </div>
+  <div class="container">
+   <div class="sidebar">
+    <div>
+     <h2>
+      Chartset
+     </h2>
+     <ul>
+      <li>
+       <i class="fas fa-address-book">
+       </i>
+       <a href="#">
+        Contact
+       </a>
+      </li>
+      <li>
+       <i class="fas fa-comments">
+       </i>
+       <a href="#">
+        Conversations
+       </a>
+      </li>
+      <li>
+       <i class="fas fa-bullhorn">
+       </i>
+       <a href="#">
+        Marketing
+       </a>
+      </li>
+      <li>
+       <i class="fas fa-chart-line">
+       </i>
+       <a href="#">
+        Sales
+       </a>
+      </li>
+      <li>
+       <i class="fas fa-cogs">
+       </i>
+       <a href="#">
+        Service
+       </a>
+      </li>
+      <li>
+       <i class="fas fa-robot">
+       </i>
+       <a href="#">
+        Automation
+       </a>
+      </li>
+      <li>
+       <i class="fas fa-chart-pie">
+       </i>
+       <a href="#">
+        Reports
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div class="logout">
+     <i class="fas fa-sign-out-alt">
+     </i>
+     <a href="#">
+      Log out
+     </a>
+    </div>
+   </div>
+   <div class="content">
+    <div class="header">
+     <h1>
+      Contacts
+     </h1>
+     <div class="actions">
+      <button>
+       Actions
+      </button>
+      <button>
+       Important
+      </button>
+      <button class="create-account">
+       Create account
+      </button>
+      <div class="user-info">
+       <img alt="User profile picture" height="40" src="https://storage.googleapis.com/a1aa/image/J6gwjGOOOMpqNZYWTrlc5xLTICbWRHWFpwqAx36nr9rf0UyJA.jpg" width="40"/>
+       <span>
+        Alex Johnson
+       </span>
+       <i class="fas fa-cog">
+       </i>
+       <i class="fas fa-bell">
+       </i>
+      </div>
+     </div>
+    </div>
+    <div class="tabs">
+     <button class="active">
+      All Contacts
+     </button>
+     <button>
+      My Contact
+     </button>
+     <button>
+      Unassigned contacts
+     </button>
+     <button>
+      Add view
+     </button>
+     <button>
+      All views
+     </button>
+    </div>
+    <div class="search-bar">
+     <input placeholder="Search name, phone, email..." type="text"/>
+     <button>
+      Contact owner
+     </button>
+     <button>
+      Create date
+     </button>
+     <button>
+      Last activity date
+     </button>
+     <button>
+      More filters
+     </button>
+     <button>
+      Table actions
+     </button>
+     <button>
+      Save view
+     </button>
+    </div>
+    <table class="table">
+     <thead>
+      <tr>
+       <th>
+        <input type="checkbox"/>
+       </th>
+       <th>
+        NAME
+       </th>
+       <th>
+        EMAIL
+       </th>
+       <th>
+        PHONE NUMBER
+       </th>
+       <th>
+        CONTACT OWNER
+       </th>
+       <th>
+        ASSOCIATED COMPANY
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Savannah Nguyen" height="30" src="https://storage.googleapis.com/a1aa/image/Egv14jaxYKJgNNfRi82u5v3J19zpkRAa6krn0wFvTK2C1UyJA.jpg" width="30"/>
+        Savannah Nguyen
+       </td>
+       <td>
+        willie.jennings@example.com
+       </td>
+       <td>
+        (201) 555-0124
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Abstergo Ltd.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Darlene Robertson" height="30" src="https://storage.googleapis.com/a1aa/image/RGPnaVIOZybXAlFhi7F0S8jvtJZ6wWheVHJx6DDuSNT90UyJA.jpg" width="30"/>
+        Darlene Robertson
+       </td>
+       <td>
+        bill.sanders@example.com
+       </td>
+       <td>
+        (229) 555-0109
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Acme Co.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Kathryn Murphy" height="30" src="https://storage.googleapis.com/a1aa/image/6Gdkux0WqPqxGd5nW6znT5fIMnIdnu6P3sLm5hV8OQvD1UyJA.jpg" width="30"/>
+        Kathryn Murphy
+       </td>
+       <td>
+        deanna.curtis@example.com
+       </td>
+       <td>
+        (405) 555-0128
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Big Kahuna Burger Ltd.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Jacob Jones" height="30" src="https://storage.googleapis.com/a1aa/image/MEfSxRHANPXEfkT8KN7YFdX7YxpcSYNYehXXh8NnWTiDUTJnA.jpg" width="30"/>
+        Jacob Jones
+       </td>
+       <td>
+        jessica.hanson@example.com
+       </td>
+       <td>
+        (207) 555-0119
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Barone LLC.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Darrell Steward" height="30" src="https://storage.googleapis.com/a1aa/image/JAykQI4ep4xMVCS93E97URehfcMqlfZf8GK8Lx3z3azFQNlcC.jpg" width="30"/>
+        Darrell Steward
+       </td>
+       <td>
+        debbie.baker@example.com
+       </td>
+       <td>
+        (225) 555-0110
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Acme Co.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Ralph Edwards" height="30" src="https://storage.googleapis.com/a1aa/image/26AWIc762CbPONfdXmAVYKlOfUCN2AKMcRa6uSFAS8p8ppkTA.jpg" width="30"/>
+        Ralph Edwards
+       </td>
+       <td>
+        debra.holt@example.com
+       </td>
+       <td>
+        (671) 555-0110
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Barone LLC.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Devon Lane" height="30" src="https://storage.googleapis.com/a1aa/image/qH8iUfidC8xcJyoMA29ltYhTrFlVJfRx1SNxfMCpgHu7TTJnA.jpg" width="30"/>
+        Devon Lane
+       </td>
+       <td>
+        alma.lawson@example.com
+       </td>
+       <td>
+        (303) 555-0105
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Biffco Enterprises Ltd.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Albert Flores" height="30" src="https://storage.googleapis.com/a1aa/image/C4ABPtDpTubUN5feir7TMbuMYTBTRKTXaHa8kqMngXfJUTJnA.jpg" width="30"/>
+        Albert Flores
+       </td>
+       <td>
+        tanya.hill@example.com
+       </td>
+       <td>
+        (205) 555-0105
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Binford Ltd.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Ronald Richards" height="30" src="https://storage.googleapis.com/a1aa/image/8zdxhKIf78TAJCY75gNgq7E568mej7Nv68TfWHewXaQknmSOB.jpg" width="30"/>
+        Ronald Richards
+       </td>
+       <td>
+        michael.mitc@example.com
+       </td>
+       <td>
+        (629) 555-0129
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Biffco Enterprises Ltd.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Esther Howard" height="30" src="https://storage.googleapis.com/a1aa/image/NJNK6BRebKxqGSQOyRw3Rv7AgSdq2UBuAPGKEufw9LgDqpkTA.jpg" width="30"/>
+        Esther Howard
+       </td>
+       <td>
+        tim.jennings@example.com
+       </td>
+       <td>
+        (239) 555-0108
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Acme Co.
+       </td>
+      </tr>
+      <tr>
+       <td>
+        <input type="checkbox"/>
+       </td>
+       <td>
+        <img alt="Profile picture of Esther Howard" height="30" src="https://storage.googleapis.com/a1aa/image/NJNK6BRebKxqGSQOyRw3Rv7AgSdq2UBuAPGKEufw9LgDqpkTA.jpg" width="30"/>
+        Esther Howard
+       </td>
+       <td>
+        tim.jennings@example.com
+       </td>
+       <td>
+        (239) 555-0108
+       </td>
+       <td>
+        Unassigned
+       </td>
+       <td>
+        Acme Co.
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <div class="pagination">
+     <span>
+      1-5 of 23
+     </span>
+     <button>
+      1
+     </button>
+    </div>
+   </div>
+  </div>
+  <script>
+    // Function to remove splash screen and show the main content
+    window.onload = function() {
+        setTimeout(() => {
+            document.getElementById('splash').classList.add('fade-out');
+            document.querySelector('.container').style.visibility = 'visible';
+            document.querySelector('.container').style.opacity = '1';
+        }, 2000); // 2 seconds splash screen
+    };
+</script>
+ </body>
+</html>
